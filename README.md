@@ -64,6 +64,7 @@ fiper/
 conda env create -f environment_clean.yml
 conda activate fiper
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+conda install -c conda-forge -y "libstdcxx-ng>=13" "libgcc-ng>=13"
 ```
 
 ### Download Data 📁
@@ -107,6 +108,7 @@ Below is an overview of the key configuration components in the `configs/` direc
 Once the desired settings are configured, run FIPER:
 
 ```bash
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 python fiper/scripts/run_fiper.py
 ```
 
